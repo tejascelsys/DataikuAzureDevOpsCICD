@@ -89,6 +89,9 @@ jobs:
     - task: UsePythonVersion@0
       inputs:
         versionSpec: '3.10'
+    - script: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt pytest    
     - bash: |
         python 2_package_bundle/run_bundling.py '${{ parameters.DESIGN_URL }}' '${{ parameters.DESIGN_API_KEY }}' '${{ parameters.DSS_PROJECT }}' '$(bundle_id)'
       displayName: 'Create bundle'
@@ -107,6 +110,9 @@ jobs:
       inputs:
         versionSpec: '3.10'
     - script: ls -la
+    - script: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt pytest
     - bash: |
         python 3_preprod_test/import_bundle.py '${{ parameters.DESIGN_URL }}' '${{ parameters.DESIGN_API_KEY }}' '${{ parameters.DSS_PROJECT }}' $(bundle_id) '${{ parameters.AUTO_PREPROD_ID }}'
       displayName: 'Upload in preprod'
@@ -132,6 +138,9 @@ jobs:
     - task: UsePythonVersion@0
       inputs:
         versionSpec: '3.10'
+    - script: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt pytest    
     - bash: |
         python 4_deploy_prod/deploy_bundle.py '${{ parameters.DESIGN_URL }}' '${{ parameters.DESIGN_API_KEY }}' '${{ parameters.DSS_PROJECT }}' '$(bundle_id)' '${{ parameters.AUTO_PROD_ID }}' '${{ parameters.AUTO_PROD_URL }}' '${{ parameters.AUTO_PROD_API_KEY }}'
       displayName: 'Upload in Prod'
