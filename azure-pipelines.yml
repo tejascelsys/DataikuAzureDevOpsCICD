@@ -8,32 +8,32 @@ parameters:
 - name: DESIGN_URL
   displayName: Design node URL
   type: string
-  default: http://10.0.0.4:10000
+  default: https://design-node.labs.csi-infra.com/
 - name: DESIGN_API_KEY
   displayName: Design node API key
   type: string
 - name: AUTO_PREPROD_ID
   displayName: Infra ID of the Preprod
   type: string
-  default: auto-preprod
+  default: Staging-Environment-automation-node
 - name: AUTO_PREPROD_URL
   displayName: PREPROD node URL
   type: string
-  default: http://10.0.0.8:10000
+  default: https://staging-environment-automation-node.labs.csi-infra.com/
 - name: AUTO_PREPROD_API_KEY
   displayName: PREPROD node API key
   type: string
 - name: AUTO_PROD_ID
   displayName: Infra ID of the Prod
   type: string
-  default: auto-prod
+  default: Production-Environment-automation-node
 - name: AUTO_PROD_API_KEY
   displayName: PROD node API key
   type: string
 - name: AUTO_PROD_URL
   displayName: PROD node URL
   type: string
-  default: http://10.0.0.9:10000
+  default: https://production-environment-automation-node.labs.csi-infra.com/
   
 jobs:
 - job: PREPARE
