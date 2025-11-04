@@ -67,6 +67,10 @@ jobs:
     - task: UsePythonVersion@0
       inputs:
         versionSpec: '3.10'
+    - script: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt pytest
+      displayName: 'Install dependencies'    
     - bash: |
         python -m pytest 1_project_validation/run_test.py -o junit_family=xunit1 --host='${{ parameters.DESIGN_URL }}' --api='${{ parameters.DESIGN_API_KEY }}' --project='${{ parameters.DSS_PROJECT }}' --junitxml=reports/PROJECT_VALIDATION.xml
       displayName: 'pytest'
@@ -106,6 +110,10 @@ jobs:
     - bash: |
         python 3_preprod_test/import_bundle.py '${{ parameters.DESIGN_URL }}' '${{ parameters.DESIGN_API_KEY }}' '${{ parameters.DSS_PROJECT }}' $(bundle_id) '${{ parameters.AUTO_PREPROD_ID }}'
       displayName: 'Upload in preprod'
+    - script: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt pytest
+      displayName: 'Install dependencies'  
     - bash: |
         python -m pytest 3_preprod_test/run_test.py -o junit_family=xunit1 --host='${{ parameters.AUTO_PREPROD_URL }}' --api='${{ parameters.AUTO_PREPROD_API_KEY }}' --project='${{ parameters.DSS_PROJECT }}' --junitxml=reports/PREPROD_TEST.xml
       displayName: 'Run tests'
