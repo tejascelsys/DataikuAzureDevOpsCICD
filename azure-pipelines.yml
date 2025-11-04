@@ -49,7 +49,7 @@ jobs:
       echo $val
       echo "##vso[task.setvariable variable=bundle;isOutput=true;]$val"
     displayName: 'Set bundle id'
-    name: SetVar
+    name: setVar
   - script: cat requirements.txt
   - script: printenv
   - task: UsePythonVersion@0
