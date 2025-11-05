@@ -151,5 +151,5 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt pytest    
     - bash: |
-        python 4_deploy_prod/deploy_bundle.py '${{ parameters.DESIGN_URL }}' '${{ parameters.DESIGN_API_KEY }}' '${{ parameters.DSS_PROJECT }}' '$(bundle_id)' '${{ parameters.AUTO_PROD_ID }}' '${{ parameters.AUTO_PROD_URL }}' '${{ parameters.AUTO_PROD_API_KEY }}'
+        python 4_deploy_prod/deploy_bundle.py '${{ parameters.DEPLOYER_URL }}' '${{ parameters.DEPLOYER_API_KEY }}' '${{ parameters.DSS_PROJECT }}' '$(bundle_id)' '${{ parameters.AUTO_PROD_ID }}' '${{ parameters.AUTO_PROD_URL }}' '${{ parameters.AUTO_PROD_API_KEY }}'
       displayName: 'Upload in Prod'
