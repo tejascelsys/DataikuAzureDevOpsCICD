@@ -35,7 +35,7 @@ parameters:
 - name: AUTO_PREPROD_API_KEY
   displayName: PREPROD node API key
   type: string
-  default: dkuaps-YEZmgl7pldhkNcbTAZeDiNQ2wHTZc7Hg 
+  default: dkuaps-rzNl7jPJuGn7oerzmDFlzUSwfP7RxK3j 
 - name: AUTO_PROD_ID
   displayName: Infra ID of the Prod
   type: string
@@ -43,7 +43,7 @@ parameters:
 - name: AUTO_PROD_API_KEY
   displayName: PROD node API key
   type: string
-  default: dkuaps-CGqJ3PMqH3DPK63zkmuJDWKjgXwItk0y
+  default: dkuaps-xQI7TIKBfgHV2TxS0NrvMXbn4IveXhgb
 - name: AUTO_PROD_URL
   displayName: PROD node URL
   type: string
