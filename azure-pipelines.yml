@@ -15,6 +15,15 @@ parameters:
   displayName: Design node API key
   type: string
   default: dkuaps-d0nU5AgjB3q4232LpZCAzrvQWULlvWp3 
+- name: DEPLOYER_URL
+  displayName: Deployer node URL
+  type: string
+  default: https://remote-deployer-node.labs.csi-infra.com
+- name: DEPLOYER_API_KEY
+  displayName: Deployer node API key
+  type: string
+  # default: dkuaps-Uj2MjYjjeOvq58FY6oMiQjrnW3qvZR7l   
+  default: dkuaps-1tkCzXfnKZDejMGI0qbHDfoNThnD6qiW
 - name: AUTO_PREPROD_ID
   displayName: Infra ID of the Preprod
   type: string
@@ -114,7 +123,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt pytest
     - bash: |
-        python 3_preprod_test/import_bundle.py '${{ parameters.DESIGN_URL }}' '${{ parameters.DESIGN_API_KEY }}' '${{ parameters.DSS_PROJECT }}' $(bundle_id) '${{ parameters.AUTO_PREPROD_ID }}'
+        python 3_preprod_test/import_bundle.py '${{ parameters.DEPLOYER_URL }}' '${{ parameters.DEPLOYER_API_KEY }}' '${{ parameters.DSS_PROJECT }}' $(bundle_id) '${{ parameters.AUTO_PREPROD_ID }}'
       displayName: 'Upload in preprod'
     - script: |
         python -m pip install --upgrade pip
